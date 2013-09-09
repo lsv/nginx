@@ -1,0 +1,10 @@
+/sites-enabled
+/sites-available
+/conf.d
+fastcgi-params
+*-utf
+koi-*
+mime.types
+naxsi*
+nginx.conf
+*_params
