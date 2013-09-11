@@ -1,0 +1,27 @@
+upstream gitlab {
+  server unix:/home/git/gitlab/tmp/sockets/gitlab.socket;
+}
+
+server {
+  listen *:80;
+  server_name example.com;
+  root /path/to/root/dir;
+
+  access_log  /path/to/root/dir/access.log;
+  error_log   /path/to/root/dir/error.log;
+
+  include global/php/phpmyadmin.conf;
+  include global/php/adminer.conf;
+  include global/errorpages.conf;
+  include global/nginx-status.conf;
+  include global/php/fpm-status.conf;
+
+  include global/nologfiles.conf;
+  include global/denys.conf;
+  include global/max-cache.conf;
+  include global/nologimages.conf;
+
+  include providers/gitlab_6.conf;
+
+}
+
